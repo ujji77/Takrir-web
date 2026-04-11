@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-do
 import Home from './pages/Home'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
+import Contact from './pages/Contact'
+import AuthCallback from './pages/AuthCallback'
 
 const TEAL = '#00cbbf'
 
@@ -27,6 +29,12 @@ function Nav() {
           >
             Terms
           </Link>
+          <Link
+            to="/contact"
+            className={`hover:text-gray-900 transition-colors ${pathname === '/contact' ? 'text-gray-900 font-medium' : ''}`}
+          >
+            Contact
+          </Link>
         </nav>
       </div>
     </header>
@@ -41,6 +49,7 @@ function Footer() {
         <div className="flex gap-5">
           <Link to="/privacy" className="hover:text-gray-600 transition-colors">Privacy Policy</Link>
           <Link to="/terms" className="hover:text-gray-600 transition-colors">Terms of Service</Link>
+          <Link to="/contact" className="hover:text-gray-600 transition-colors">Contact</Link>
         </div>
       </div>
     </footer>
@@ -57,6 +66,8 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/auth/callback" element={<AuthCallback />} />
           </Routes>
         </main>
         <Footer />
